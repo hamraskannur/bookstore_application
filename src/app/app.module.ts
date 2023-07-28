@@ -15,6 +15,7 @@ import { FooterComponent } from './pages/home/footer/footer.component';
 import { changeCurrency } from './pipes/change_currency';
 import { CartsComponent } from './pages/carts/carts.component';
 import { CartComponent } from './pages/carts/cart/cart.component';
+import { BookDetailsComponent } from './pages/book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CartComponent } from './pages/carts/cart/cart.component';
     FooterComponent,
     CartsComponent,
     CartComponent,
+    BookDetailsComponent,
   ],
   imports: [
     HttpClientModule  ,
