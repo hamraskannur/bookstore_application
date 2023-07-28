@@ -1,8 +1,6 @@
-
- <div class="cards">
+<div class="cards">
    <div class="card custom-margin-top" *ngFor="let card of cardData">
-     <span class="close" (click)="closeCard(card)"></span>
-     <span class="arrow" (click)="openCard(card)"></span>
+   
      <article>
        <h2>{{ card.title|shorten }}</h2>
        <div class="title">{{ card.price|change_currency }}</div>
@@ -11,11 +9,13 @@
      </article>
      <div class="actions">
        <button class="btn" (click)="toggleLike(card)">
-         <span>like</span>
+         <span>add to cart</span>
          <img class="icon"  src="../../../../assets/img/cart.svg">
+         <!-- <img class="icon"  src="../../../../assets/img/fill-cart.svg"> -->
+
        </button>
        <button class="btn" (click)="toggleTrade(card)">
-         <span>trade</span>
+         <span>open</span>
          <img class="icon" src="https://rafaelavlucas.github.io/assets/icons/misc/trade.svg">
        </button>
      </div>

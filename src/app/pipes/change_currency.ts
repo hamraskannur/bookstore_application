@@ -12,6 +12,6 @@ export class changeCurrency implements PipeTransform {
       const indianRupeesAmount = Math.floor(amount * exchangeRateUSDToINR)
       return "₹"+indianRupeesAmount;
     }
-    return value;
+    return value; 
   }
 }

@@ -1,0 +1,50 @@
+.row{
+    margin: 0;
+}
+input{
+    width: 3rem;
+}
+.main{
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+}
+
+img{
+    width: 3.5rem;
+}
+.quantity {
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;}
+
+.quantity button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    border: none;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quantity-value {
+    margin: 0 10px;
+    font-size: 16px;
+}
+.count{
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity button:hover {
+    background-color: #e0e0e0;
+}
+
+.price{
+    font-size: medium;
+}
+.text-muted{
+    font-size: medium;
+}

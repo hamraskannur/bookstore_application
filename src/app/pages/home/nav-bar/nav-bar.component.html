@@ -1,18 +1,18 @@
 <header class="header" >
     <div class="header-1">
-      <a class="logo"><i class="fas fa-book"></i> bookly</a>
+      <a class="logo" style="cursor: pointer;" [routerLink]="'/home'"><i class="fas fa-book"  ></i> bookly</a>
       <form action="" class="search-Form" [ngClass]="{ 'active': searchActive }">
         <input type="search" name="" placeholder="search here..." id="search-box" />
         <label for="search-box" class="fas fa-search"></label>
       </form>
       <div class="icons">
         <div id="search-btn" (click)="showSearch()" class="fas fa-search"></div>
-        <a class="fas fa-shopping-cart"></a>
+        <a class="fas fa-shopping-cart" [routerLink]="'/cart'"></a>
       </div>
     </div>
     <div class="header-2" [ngClass]="{ 'active': headerActive }">
       <nav class="navbar">
-        <a>home</a>
+        <a [routerLink]="'/'">home</a>
         <a>featured</a>
         <a>arrivals</a>
         <a>reviews</a>

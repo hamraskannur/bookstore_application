@@ -17,16 +17,6 @@ export class CardsComponent implements OnInit {
           this.cardData = books
       });
   }
-  closeCard(card: any) {
-    card.closed = true;
-  }
-
-  openCard(card: any) {
-    if (card.closed) {
-      card.closed = false;
-    }
-  }
-
   toggleLike(card: any) {
     card.liked = !card.liked;
   }
