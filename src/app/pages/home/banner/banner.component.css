@@ -1,0 +1,84 @@
+section {
+  padding: 5rem 9%;
+}
+
+.home {
+  background: url("../../../../assets/img/background.jpeg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.home .row .content {
+  flex: 1 1 42rem;
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.9rem 3rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  background: var(--green);
+  font-size: 1.7rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.home .row .books-slider {
+  flex: 1 1 42rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+#items{
+    display: flex;
+}
+
+.image {
+  height: 25rem;
+  width: 50rem;
+}
+
+.image:hover {
+  transform: scale(0.9);
+}
+
+.home .row .books-slider .stand {
+  width: 100%;
+  margin-top: -2rem;
+}
+
+.home .row .content h3 {
+  color: var(--black);
+  font-size: 4.5rem;
+}
+
+.home .row .content p {
+  color: var(--light-color);
+  font-size: 1.5rem;
+  line-height: 2;
+  padding: 1rem 0;
+}
+
+/* media queries */
+
+@media (max-width: 991px) {
+  section {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+    .home .row .content{
+      text-align: center;
+    }
+  .home .row .content h3 {
+    font-size: 3.5rem;
+  }
+}

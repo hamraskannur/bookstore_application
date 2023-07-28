@@ -1,0 +1,22 @@
+<header class="header" >
+    <div class="header-1">
+      <a class="logo"><i class="fas fa-book"></i> bookly</a>
+      <form action="" class="search-Form" [ngClass]="{ 'active': searchActive }">
+        <input type="search" name="" placeholder="search here..." id="search-box" />
+        <label for="search-box" class="fas fa-search"></label>
+      </form>
+      <div class="icons">
+        <div id="search-btn" (click)="showSearch()" class="fas fa-search"></div>
+        <a class="fas fa-shopping-cart"></a>
+      </div>
+    </div>
+    <div class="header-2" [ngClass]="{ 'active': headerActive }">
+      <nav class="navbar">
+        <a>home</a>
+        <a>featured</a>
+        <a>arrivals</a>
+        <a>reviews</a>
+        <a>contact</a>
+      </nav>
+    </div>
+  </header>
