@@ -10,7 +10,7 @@ export class changeCurrency implements PipeTransform {
       let amount = parseFloat(amountWithoutDollar);
       const exchangeRateUSDToINR = 74.5;
       const indianRupeesAmount = Math.floor(amount * exchangeRateUSDToINR)
-      return "₹"+indianRupeesAmount;
+      return "₹ "+indianRupeesAmount;
     }
     return value; 
   }

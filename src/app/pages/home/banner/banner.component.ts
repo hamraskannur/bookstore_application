@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ApiServiceService } from '../api.service.service';
+import { ApiServiceService } from '../../api.service.service';
 import { Books } from 'src/app/interface/interface';
+import { ErrorHandlerServiceService } from '../../error-handler.service.service';
 
 declare var bootstrap: any;
 
@@ -13,7 +14,7 @@ export class BannerComponent implements OnInit {
   @ViewChild('carousel', { static: true })
   carouselRef!: ElementRef<HTMLDivElement>;
   private carousel: any;
-  constructor(private apiServiceService: ApiServiceService) {}
+  constructor(private apiServiceService: ApiServiceService,private errorHandlerServiceService:ErrorHandlerServiceService) {}
 
   currentPairIndex = 0;
   pairsOfImages: string[][] = [];
@@ -35,6 +36,8 @@ export class BannerComponent implements OnInit {
         if (books[i + 2]) pair.push(books[i + 2].image);
         this.pairsOfImages.push(pair);
       }
+    },(error)=>{
+      this.errorHandlerServiceService.handleError(error);
     })
   }
 

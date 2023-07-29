@@ -8,17 +8,19 @@
               <div class="text-center p-4">
                 <img
                   id="main-image"
-                  src="https://i.imgur.com/Dhebu4F.jpg"
+                  [src]="bookDetails.image"
                   width="250"
                 />
               </div>
+
               <div class="thumbnail text-center">
-                <img src="https://i.imgur.com/Rx7uKd0.jpg" width="70" />
-                <img
-                  
-                  src="https://i.imgur.com/Dhebu4F.jpg"
-                  width="70"
-                />
+                <a  href="https://itbook.store/files/9781617291609/chapter1.pdf"  class="btn button text-uppercase mr-2 px-4">
+                    pdf 1
+                </a>
+                  <a  href="https://itbook.store/files/9781617294136/chapter5.pdf" class="btn button text-uppercase mr-2 px-4">
+                    pdf 2
+                  </a>
+                
               </div>
             </div>
           </div>
@@ -26,18 +28,16 @@
             <div class="product p-4">
              
               <div class="mt-4 mb-3">
-                  <h5 class="text-uppercase" class="text">title : Men's slim fit t-shirt</h5>
-                <span class="text-uppercase text-muted brand" class="text">authors : Orianz</span>
+                  <h5 class="text-uppercase" class="text">title : {{bookDetails.title}}</h5>
+                <span class="text-uppercase text-muted brand" class="text">authors : {{bookDetails.authors}}</span>
                 <div class="price d-flex flex-row align-items-center">
                   <div class="ml-2">
-                    <strong class="text">price : ₹500 </strong>
+                    <strong class="text">price : {{bookDetails.price|change_currency}}</strong>
                   </div>
                 </div>
               </div>
               <p class="about">
-                subtitle :Shop from a wide range of t-shirt from orianz. Pefect for your
-                everyday use, you could pair it with a stylish pair of jeans or
-                trousers complete the look.
+                subtitle : {{bookDetails.desc}}.
               </p>
               
               <div class="cart mt-4 align-items-center">

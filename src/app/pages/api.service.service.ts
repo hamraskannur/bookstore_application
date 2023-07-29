@@ -11,6 +11,11 @@ export class ApiServiceService {
   
   getBooks=() => {
     const url = 'https://api.itbook.store/1.0/search/mongodb';
-  return this.http.get<{ total: string, books:Books[], error: string }>(url)
+    return this.http.get<{ total: string, books:Books[], error: string }>(url)
+  }
+
+  getBooksDetails=(id:string):any => {
+    const url = `https://api.itbook.store/1.0/books/${id}`;
+    return this.http.get(url)
   }
 }

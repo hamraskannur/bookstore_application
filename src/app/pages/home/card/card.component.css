@@ -84,6 +84,7 @@ body {
   display: none;
 }
 .cards .card article {
+  cursor: pointer;
   z-index: 1;
   display: flex;
   align-items: center;

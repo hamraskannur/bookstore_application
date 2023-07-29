@@ -16,6 +16,7 @@ import { changeCurrency } from './pipes/change_currency';
 import { CartsComponent } from './pages/carts/carts.component';
 import { CartComponent } from './pages/carts/cart/cart.component';
 import { BookDetailsComponent } from './pages/book-details/book-details.component';
+import { ErrorsComponent } from './pages/errors/errors.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BookDetailsComponent } from './pages/book-details/book-details.componen
     CartsComponent,
     CartComponent,
     BookDetailsComponent,
+    ErrorsComponent,
   ],
   imports: [
     HttpClientModule  ,

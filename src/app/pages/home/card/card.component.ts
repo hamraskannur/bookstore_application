@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component,OnInit } from '@angular/core';
 import { Books } from 'src/app/interface/interface';
-import { ApiServiceService } from '../api.service.service';
+import { ApiServiceService } from '../../api.service.service';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -10,10 +11,11 @@ import { ApiServiceService } from '../api.service.service';
 })
 export class CardsComponent implements OnInit {
   cardData: Books[] = [];
-  constructor(private apiServiceService: ApiServiceService) {}
+  constructor(private apiServiceService: ApiServiceService,private router: Router ) {}
 
   ngOnInit() {
-    this.apiServiceService.getBooks().subscribe(({books}:{ total: string, books:Books[], error: string }):void => {                
+    this.apiServiceService.getBooks().subscribe(({books}:{ total: string, books:Books[], error: string }):void => {         
+                
           this.cardData = books
       });
   }
@@ -21,7 +23,7 @@ export class CardsComponent implements OnInit {
     card.liked = !card.liked;
   }
 
-  toggleTrade(card: any) {
-    card.traded = !card.traded;
+  openBookDetails(id: string) {
+    this.router.navigate(["/bookDetails", id]);
   }
 }
