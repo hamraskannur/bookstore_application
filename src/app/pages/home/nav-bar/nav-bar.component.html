@@ -1,8 +1,8 @@
 <header class="header" >
     <div class="header-1">
       <a class="logo" style="cursor: pointer;" [routerLink]="'/home'"><i class="fas fa-book"  ></i> bookly</a>
-      <form action="" class="search-Form" [ngClass]="{ 'active': searchActive }">
-        <input type="search" name="" placeholder="search here..." id="search-box" />
+      <form *ngIf="!(router.url === '/cart' || router.url === '/404') " action="" class="search-Form" [ngClass]="{ 'active': searchActive }">
+        <input type="search" placeholder="search here..." id="search-box" />
         <label for="search-box" class="fas fa-search"></label>
       </form>
       <div class="icons">

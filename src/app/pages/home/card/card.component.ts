@@ -16,7 +16,6 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
     this.apiServiceService.getBooks().subscribe(({books}:{ total: string, books:Books[], error: string }):void => {         
-                
           this.cardData = books
       });
   }

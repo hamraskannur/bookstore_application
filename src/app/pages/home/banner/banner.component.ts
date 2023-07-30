@@ -38,8 +38,6 @@ export class BannerComponent implements OnInit {
         this.pairsOfImages.push(pair);
       }
       console.log(this.pairsOfImages);
-    }, (error) => {
-      this.errorHandlerServiceService.handleError(error);
     });
   }
 

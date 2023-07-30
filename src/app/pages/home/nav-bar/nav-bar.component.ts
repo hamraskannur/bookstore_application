@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,6 +9,7 @@ import { Component, HostListener } from '@angular/core';
 export class NavBarComponent {
   headerActive = false;
   searchActive=false
+  constructor(public router: Router) {}
 
   ngOnInit() {
     this.onWindowScroll(); 
