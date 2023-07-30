@@ -13,8 +13,7 @@ const routes: Routes = [
   { path: 'cart', component:CartsComponent   },
   { path: 'bookDetails/:id', component:BookDetailsComponent},
   { path: '404', component:ErrorsComponent},
-  { path: '*', redirectTo: '/404', pathMatch: 'full' },
-  
+  { path: '**', redirectTo: '/404', pathMatch: 'full' }
 ];
 
 @NgModule({

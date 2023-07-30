@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
 @import url("https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700&display=swap");
+@import 'ngx-toastr/toastr';
 
 
 body {

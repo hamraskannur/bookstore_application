@@ -5,6 +5,7 @@ export interface Books{
     subtitle:string;
     title:string;
     url:string;
+    quantity?:number;
 }
 
 

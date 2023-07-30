@@ -1,9 +1,9 @@
 <div class="row">
     <div class="row main align-items-center">
-        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+        <div class="col-2"><img class="img-fluid" [src]="cart.image"></div>
         <div class="col">
-            <div class="row text-muted">Shirt</div>
-            <div class="row">Cotton T-shirt</div>
+            <div class="row text-muted">{{cart.title}}</div>
+            <div class="row">{{cart.subtitle}}</div>
         </div>
             <div class="col d-flex quantity">
                 <div class="count"> 
@@ -12,7 +12,9 @@
                     <button class="increment" (click)="increment()">+</button>
                 </div>
             </div>
-        <div class="col price">&euro; 44.00<span class="close" (click)="removeBook()">&#10005;</span>
+        <div class="col price">{{cart.price|change_currency}}<span class="close" style="cursor: pointer;" (click)="removeBook(cart.isbn13)">&#10005;</span>
         </div>
     </div>
+    <hr/>
 </div>
+

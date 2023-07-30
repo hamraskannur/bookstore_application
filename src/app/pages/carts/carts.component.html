@@ -1,21 +1,21 @@
 <div class="card ">
-    <div class="row">
+    <div class="row" *ngIf="cartItem.length>0 else empty">
         <div class="col-md-12 cart">
             <div class="title">
                 <div class="row">
                     <div class="col"><h4><img src="../../../assets/img/cart.svg" alt=""><b>Shopping Cart</b></h4></div>
-                    <div class="col align-self-center text-right text-muted">3 items</div>
+                    <div class="col align-self-center text-right text-muted">{{cartItem.length}} items</div>
                 </div>
             </div>    
             <div class="row border-top border-bottom">
             </div>
-            <app-cart></app-cart>
-            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">TOTAL PRICE  :<span class="col text-right">&euro; 137.00</span></div>
-            </div>
+            <app-cart *ngFor="let cart of cartItem" [cart]="cart"></app-cart>
+           
             <button class="btn">CHECKOUT</button>
             <div style="cursor: pointer;" class="back-to-shop" [routerLink]="'/home'"><a >&leftarrow;</a><span class="text-muted">Back to shop</span></div>
         </div>
     </div>
-</div>
-    
+    <ng-template #empty>
+        <app-empty-cart></app-empty-cart>
+      </ng-template>
+    </div>

@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ApiServiceService } from '../../api.service.service';
+import { ApiServiceService } from '../../../services/api.service.service';
 import { Books } from 'src/app/interface/interface';
-import { ErrorHandlerServiceService } from '../../error-handler.service.service';
+import { ErrorHandlerServiceService } from '../../../services/error-handler.service.service';
 
 declare var bootstrap: any;
+type ImagePair = { image: string; id: string };
 
 @Component({
   selector: 'app-banner',
@@ -14,10 +15,10 @@ export class BannerComponent implements OnInit {
   @ViewChild('carousel', { static: true })
   carouselRef!: ElementRef<HTMLDivElement>;
   private carousel: any;
-  constructor(private apiServiceService: ApiServiceService,private errorHandlerServiceService:ErrorHandlerServiceService) {}
+  constructor(private apiServiceService: ApiServiceService, private errorHandlerServiceService: ErrorHandlerServiceService) { }
 
   currentPairIndex = 0;
-  pairsOfImages: string[][] = [];
+  public pairsOfImages: ImagePair[][] = [];
 
   ngOnInit() {
     this.createPairsOfImages();
@@ -28,17 +29,18 @@ export class BannerComponent implements OnInit {
   }
 
   createPairsOfImages() {
-     this.apiServiceService.getBooks().subscribe(({books}:{ total: string, books:Books[], error: string })=>{
+    this.apiServiceService.getBooks().subscribe(({ books }: { total: string, books: Books[], error: string }) => {
       for (let i = 0; i < books.length; i += 2) {
-        const pair: string[] = [];
-        if (books[i]) pair.push(books[i].image);
-        if (books[i + 1]) pair.push(books[i + 1].image);
-        if (books[i + 2]) pair.push(books[i + 2].image);
+        const pair: ImagePair[] = [];
+        if (books[i]) pair.push({ image: books[i].image, id: books[i].isbn13 });
+        if (books[i + 1]) pair.push({ image: books[i + 1].image, id: books[i + 1].isbn13 });
+        if (books[i + 2]) pair.push({ image: books[i + 2].image, id: books[i + 2].isbn13 });
         this.pairsOfImages.push(pair);
       }
-    },(error)=>{
+      console.log(this.pairsOfImages);
+    }, (error) => {
       this.errorHandlerServiceService.handleError(error);
-    })
+    });
   }
 
   startCarousel() {

@@ -5,7 +5,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum fugit necessitatibus
                 numquam inventore consectetur maxime unde illo minus eveniet pariatur animi libero veniam,
                 impedit natus ratione sequi perferendis nisi facilis?</p>
-            <a  class="btn">shop now</a>
+            <a [routerLink]="['/bookDetails','9781449310370']" class="btn">shop now</a>
         </div>
         <div class="books-slider">
             <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel" #carousel>
@@ -14,7 +14,9 @@
                         class="carousel-item">
                         <div class="d-flex">
                             <div *ngFor="let image of pair" class="w-50">
-                                <img [src]="image" class="image d-block w-100" alt="img">
+                                <a [routerLink]="['/bookDetails',image.id]">
+                                    <img  [src]="image.image" class="image d-block w-100" alt="img">
+                                </a>
                             </div>
                         </div>
                     </div>
