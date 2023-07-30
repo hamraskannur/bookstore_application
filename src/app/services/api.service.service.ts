@@ -6,16 +6,16 @@ import { Books } from 'src/app/interface/interface';
   providedIn: 'root',
 })
 export class ApiServiceService {
-
+   public Api="https://api.itbook.store/"
   constructor(private http: HttpClient) {}
   
   getBooks=() => {
-    const url = 'https://api.itbook.store/1.0/search/mongodb';
+    const url = `${this.Api}1.0/search/mongodb`;
     return this.http.get<{ total: string, books:Books[], error: string }>(url)
   }
 
   getBooksDetails=(id:string):any => {
-    const url = `https://api.itbook.store/1.0/books/${id}`;
+    const url = `${this.Api}1.0/books/${id}`;
     return this.http.get(url)
   }
 }
