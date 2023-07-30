@@ -8,6 +8,7 @@
       <div class="icons">
         <div id="search-btn" (click)="showSearch()" class="fas fa-search"></div>
         <a class="fas fa-shopping-cart" [routerLink]="'/cart'"></a>
+        <span class="cart-count" [routerLink]="'/cart'" *ngIf="cartItemCount > 0">{{ cartItemCount }}</span>
       </div>
     </div>
     <div class="header-2" [ngClass]="{ 'active': headerActive }">

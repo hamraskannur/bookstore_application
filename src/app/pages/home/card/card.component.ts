@@ -4,6 +4,7 @@ import { Books } from 'src/app/interface/interface';
 import { ApiServiceService } from '../../../services/api.service.service';
 import {  Router } from '@angular/router';
 import { CartServiceService } from 'src/app/services/cart.service.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-card',
@@ -15,12 +16,18 @@ export class CardsComponent implements OnInit {
   constructor(private apiServiceService: ApiServiceService,private cartServiceService:CartServiceService,private router: Router ) {}
 
   ngOnInit() {
-    this.apiServiceService.getBooks().subscribe(({books}:{ total: string, books:Books[], error: string }):void => {         
-          this.cardData = books
-      });
+    this.apiServiceService.getBooks().pipe(
+      map(({ books ,total}: { total: string; books: Books[]; error: string }) =>
+      books.map((book) => ({ ...book, addedToCart: false }))
+      )
+    ).subscribe((transformedBooks: Books[]) => {      
+      this.cardData = transformedBooks;
+    });
+
   }
   addToCart(card: Books) {
     this.cartServiceService.addToCart(card)
+    card.addedToCart = true;
   }
 
   openBookDetails(id: string) {

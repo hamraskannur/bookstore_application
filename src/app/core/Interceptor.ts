@@ -11,12 +11,7 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 404) {
-          this.errorHandlerServiceService.handleError(error) 
-        }else{
-            this.errorHandlerServiceService.handleError(error) 
-        }
-
+        this.errorHandlerServiceService.handleError(error) 
         return throwError(error);
       })
     );

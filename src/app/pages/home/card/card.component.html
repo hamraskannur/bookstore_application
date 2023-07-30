@@ -2,24 +2,33 @@
    <div class="card custom-margin-top" *ngFor="let card of cardData">
      <article (click)="openBookDetails(card.isbn13)">
          <h2>{{ card.title|shorten }}</h2>
-         <div class="title">{{ card.price|change_currency }}</div>
+         <div class="title">{{ card.price|change_currency:1 }}</div>
          <div class="pic"><img src="{{ card.image }}"></div>
          <div class="desc">{{ card.subtitle }}</div>
        </article>
      <div class="actions">
-       <button class="btn" (click)="addToCart(card)">
+       <button class="btn" *ngIf="!card.addedToCart else added" (click)="addToCart(card)">
          <span>add to cart</span>
          <img class="icon"  src="../../../../assets/img/cart.svg">
          <!-- <img class="icon"  src="../../../../assets/img/fill-cart.svg"> -->
        </button>
+       
        <button class="btn" (click)="openBookDetails(card.isbn13)">
          <span>open</span>
          <img class="icon" src="https://rafaelavlucas.github.io/assets/icons/misc/trade.svg">
        </button>
      </div>
+     <ng-template #added>
+      <button class="btn"(click)="addToCart(card)">
+        <span>added</span>
+        <img class="icon"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzmOMLSUID7E9evtFv3_g2Rd0oIUUvkw_rqw&usqp=CAU">
+      </button>
+    </ng-template>
    </div>
   
  </div>
+
+
 
  <hr class="line"/>
  

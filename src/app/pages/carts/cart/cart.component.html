@@ -12,7 +12,7 @@
                     <button class="increment" (click)="increment()">+</button>
                 </div>
             </div>
-        <div class="col price">{{cart.price|change_currency}}<span class="close" style="cursor: pointer;" (click)="removeBook(cart.isbn13)">&#10005;</span>
+        <div class="col price">{{cart.price|change_currency:count}}<span class="close" style="cursor: pointer;" (click)="removeBook(cart.isbn13)">&#10005;</span>
         </div>
     </div>
     <hr/>

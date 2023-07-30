@@ -11,15 +11,16 @@ body {
   place-items: center;
   background-color: #f2f2f2;
 }
-
+.added {
+  background-color: green; 
+}
 .cards {
+  padding: 5rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
-  margin-top: 2rem;
 }
 .cards .card {
  

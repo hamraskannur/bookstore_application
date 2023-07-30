@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartServiceService } from 'src/app/services/cart.service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,10 +10,15 @@ import { Router } from '@angular/router';
 export class NavBarComponent {
   headerActive = false;
   searchActive=false
-  constructor(public router: Router) {}
+  cartItemCount=0
+  constructor(public router: Router,private cartServiceService:CartServiceService){}
+
 
   ngOnInit() {
     this.onWindowScroll(); 
+    this.cartServiceService.getCartItemCount().subscribe((count) => {
+      this.cartItemCount = count; 
+    });
   }
 
   showSearch(){

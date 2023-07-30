@@ -11,7 +11,7 @@ export class ApiServiceService {
   constructor(private http: HttpClient) {}
   
   getBooks=(): Observable<{ total: string, books:Books[], error: string }> => {
-    const url = `${this.Api}1.0/search/mongodb`;
+    const url = `${this.Api}1.0/new`;
     return this.http.get<{ total: string, books:Books[], error: string }>(url)
   }
 

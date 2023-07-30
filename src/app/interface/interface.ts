@@ -6,6 +6,7 @@ export interface Books{
     title:string;
     url:string;
     quantity?:number;
+    addedToCart: boolean;
 }
 
 
