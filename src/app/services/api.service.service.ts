@@ -7,7 +7,7 @@ import { Books } from 'src/app/interface/interface';
   providedIn: 'root',
 })
 export class ApiServiceService {
-   public Api="https://api.itbook.store/"
+  private Api="https://api.itbook.store/"
   constructor(private http: HttpClient) {}
   
   getBooks=(): Observable<{ total: string, books:Books[], error: string }> => {

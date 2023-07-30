@@ -19,9 +19,9 @@ ngOnInit(){
   this.route.params.subscribe(params => {
     this.id = params['id']; 
     this.apiServiceService.getBooksDetails(this.id).subscribe((data:any)=>{
+      console.log(data);
+      
        this.bookDetails=data; 
-    },(error:object)=>{
-      this.errorHandlerServiceService.handleError(error);
     })
   });
 }

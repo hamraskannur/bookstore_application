@@ -11,6 +11,5 @@ export class ToastrServiceService {
   }
   showError(message: string) {
     this.toastr.error(message, 'Success', { timeOut: 3000 })
-
   }
 }
