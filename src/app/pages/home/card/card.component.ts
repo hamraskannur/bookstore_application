@@ -17,8 +17,11 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
     this.apiServiceService.getBooks().pipe(
-      map(({ books ,total}: { total: string; books: Books[]; error: string }) =>
-      books.map((book) => ({ ...book, addedToCart: false }))
+      map(({ books }: { total: string; books: Books[]; error: string }) =>
+        books.map((book) => ({
+          ...book,
+          addedToCart: this.cartServiceService.isBookInCart(book.isbn13),
+        }))
       )
     ).subscribe((transformedBooks: Books[]) => {      
       this.cardData = transformedBooks;
