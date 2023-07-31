@@ -13,21 +13,21 @@ import { Books } from 'src/app/interface/interface';
 export class BookDetailsComponent implements OnInit {
   public id :string=''
   public bookDetails:any={}
-constructor(private route: ActivatedRoute,private apiServiceService:ApiServiceService,private errorHandlerServiceService:ErrorHandlerServiceService,private cartServiceService:CartServiceService){}
+constructor(private route: ActivatedRoute,private apiServiceService:ApiServiceService,private cartServiceService:CartServiceService){}
 
 ngOnInit(){
   this.route.params.subscribe(params => {
     this.id = params['id']; 
-    this.apiServiceService.getBooksDetails(this.id).subscribe((data:any)=>{
-      console.log(data);
-      
+    this.apiServiceService.getBooksDetails(this.id).subscribe((data:any)=>{      
        this.bookDetails=data; 
+       this.bookDetails.addedToCart=this.cartServiceService.isBookInCart(data.isbn13)
     })
   });
 }
 
 addToCart(card: Books) {
   this.cartServiceService.addToCart(card)
+  card.addedToCart=true
 }
 
 }

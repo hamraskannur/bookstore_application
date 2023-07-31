@@ -34,10 +34,8 @@ export class CartServiceService {
 
   addToCart(book: Books): void {
     const existingBook = this.cartBooks.find(item => item.isbn13 === book.isbn13);
-    if (existingBook) {
-      if (existingBook.quantity) {
-        existingBook.quantity += 1;
-      }
+    if (existingBook && existingBook.quantity) {
+      existingBook.quantity += 1;
       this.toastrServiceService.showError("The book already exists in the cart, and its quantity has been incremented.")
     } else {
       this.cartBooks.push({ ...book, quantity: 1 });
