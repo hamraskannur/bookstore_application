@@ -26,8 +26,8 @@ export class CardsComponent implements OnInit {
     ).subscribe((transformedBooks: Books[]) => {      
       this.cardData = transformedBooks;
     });
-
   }
+  
   addToCart(card: Books) {
     this.cartServiceService.addToCart(card)
     card.addedToCart = true;

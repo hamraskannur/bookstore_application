@@ -9,29 +9,32 @@ import { CartServiceService } from 'src/app/services/cart.service.service';
 })
 export class CartComponent implements OnInit {
   @Input() cart!: Books;
-  public count:number = 1;
+  public quantity:number = 1;
 
   constructor(private cartServiceService:CartServiceService){}
   ngOnInit() {
-    this.count = this.cart.quantity ?? 1;
+    this.quantity = this.cart.quantity ?? 1;
   }
-  decrement() {
-    if (this.count !== 1) {
-      this.count--;
+  decrement(id:string) {
+    if (this.quantity !== 1) {
+      this.quantity--;
+      this.cartServiceService.changeCartQuantity(id,this.quantity)
     }
   }
 
-  increment() {
-    this.count++;
+  increment(id:string) {
+    this.quantity++;
+    this.cartServiceService.changeCartQuantity(id,this.quantity)
   }
 
   removeBook(id:string) {
     this.cartServiceService.removeFromCart(id)
   }
-  updateQuantity() {
-    if (this.count <= 0) {
-      this.count = 1;
+  updateQuantity(id:string) {
+    if (this.quantity <= 0) {
+      this.quantity = 1;
     }
+    this.cartServiceService.changeCartQuantity(id,this.quantity)
   }
 }
 
