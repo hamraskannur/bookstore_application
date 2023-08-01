@@ -47,7 +47,7 @@ import { EmptyCartComponent } from './pages/carts/empty-cart/empty-cart.componen
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true } ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
