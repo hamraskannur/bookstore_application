@@ -1,5 +1,5 @@
 <div class="cards">
-   <div class="card custom-margin-top" *ngFor="let card of cardData">
+   <div class="card custom-margin-top" *ngFor="let card of cardData ">
      <article (click)="openBookDetails(card.isbn13)">
          <h2>{{ card.title|shorten }}</h2>
          <div class="title">{{ card.price|change_currency:1 }}</div>

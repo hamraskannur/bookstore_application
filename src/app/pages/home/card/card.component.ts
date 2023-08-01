@@ -27,7 +27,7 @@ export class CardsComponent implements OnInit {
       this.cardData = transformedBooks;
     });
   }
-  
+
   addToCart(card: Books) {
     this.cartServiceService.addToCart(card)
     card.addedToCart = true;
