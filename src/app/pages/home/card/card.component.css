@@ -62,9 +62,7 @@ body {
   background-size: 100%;
   opacity: 0.8;
 }
-.cards .card .arrow {
-  display: none;
-}
+
 .cards .card article {
   cursor: pointer;
   z-index: 1;
@@ -108,8 +106,7 @@ body {
 }
 .cards .card article .pic img {
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+
 }
 .cards .card .actions {
   width: 100%;
