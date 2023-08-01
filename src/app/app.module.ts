@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { ToastrModule } from 'ngx-toastr'; 
 
+import { ErrorHandlingInterceptor } from './core/Interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './pages/home/nav-bar/nav-bar.component';
@@ -46,7 +47,7 @@ import { EmptyCartComponent } from './pages/carts/empty-cart/empty-cart.componen
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [ ],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
