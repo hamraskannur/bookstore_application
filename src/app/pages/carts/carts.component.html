@@ -10,12 +10,11 @@
             <div class="row border-top border-bottom">
             </div>
             <app-cart *ngFor="let cart of cartItem" [cart]="cart"></app-cart>
-           
             <button class="btn">CHECKOUT</button>
             <div style="cursor: pointer;" class="back-to-shop" [routerLink]="'/home'"><a >&leftarrow;</a><span class="text-muted">Back to shop</span></div>
         </div>
     </div>
     <ng-template #empty>
         <app-empty-cart></app-empty-cart>
-      </ng-template>
+    </ng-template>
     </div>
