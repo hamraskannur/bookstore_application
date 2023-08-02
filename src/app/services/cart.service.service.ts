@@ -46,9 +46,9 @@ export class CartServiceService {
     this.saveCartToLocalStorage();
   }
 
-  changeCartQuantity(id: string, quantity: number): void {
-    const existingBook = this.cartBooks.find((item) => item.isbn13 === id);
-    if (existingBook && existingBook.quantity) {
+  changeCartQuantity(id: string, quantity: number ,index:number): void {
+    const existingBook = this.cartBooks[index]
+    if (existingBook && existingBook.isbn13 === id) {
         existingBook.quantity = quantity;
         this.toastrServiceService.showSuccess('its quantity has been changed.');
     }

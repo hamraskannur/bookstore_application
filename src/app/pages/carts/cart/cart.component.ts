@@ -9,6 +9,7 @@ import { CartServiceService } from 'src/app/services/cart.service.service';
 })
 export class CartComponent implements OnInit {
   @Input() cart!: Books;
+  @Input() index!: number
   public quantity:number = 1;
 
   constructor(private cartServiceService:CartServiceService){}
@@ -18,13 +19,13 @@ export class CartComponent implements OnInit {
   decrement(id:string) {
     if (this.quantity !== 1) {
       this.quantity--;
-      this.cartServiceService.changeCartQuantity(id,this.quantity)
+      this.cartServiceService.changeCartQuantity(id,this.quantity,this.index)
     }
   }
 
   increment(id:string) {
     this.quantity++;
-    this.cartServiceService.changeCartQuantity(id,this.quantity)
+    this.cartServiceService.changeCartQuantity(id,this.quantity,this.index)
   }
 
   removeBook(id:string) {
@@ -34,7 +35,7 @@ export class CartComponent implements OnInit {
     if (this.quantity <= 0) {
       this.quantity = 1;
     }
-    this.cartServiceService.changeCartQuantity(id,this.quantity)
+    this.cartServiceService.changeCartQuantity(id,this.quantity,this.index)
   }
 }
 
