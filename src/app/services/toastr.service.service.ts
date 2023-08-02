@@ -13,3 +13,4 @@ export class ToastrServiceService {
     this.toastr.error(message, 'Success', { timeOut: 3000 })
   }
 }
+
