@@ -9,5 +9,3 @@ export interface Books{
     addedToCart: boolean;
 }
 
-
-

@@ -10,8 +10,7 @@
        <button class="btn" *ngIf="!card.addedToCart else added" (click)="addToCart(card)">
          <span>add to cart</span>
          <img class="icon"  src="../../../../assets/img/cart.svg">
-       </button>
-       
+       </button>  
        <button class="btn" (click)="openBookDetails(card.isbn13)">
          <span>open</span>
          <img class="icon" src="https://rafaelavlucas.github.io/assets/icons/misc/trade.svg">

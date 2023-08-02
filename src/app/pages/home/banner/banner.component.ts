@@ -15,7 +15,7 @@ export class BannerComponent implements OnInit {
   @ViewChild('carousel', { static: true })
   carouselRef!: ElementRef<HTMLDivElement>;
   private carousel: any;
-  constructor(private apiServiceService: ApiServiceService, private errorHandlerServiceService: ErrorHandlerServiceService) { }
+  constructor(private apiServiceService: ApiServiceService) { }
 
   currentPairIndex = 0;
   public pairsOfImages: ImagePair[][] = [];
@@ -37,7 +37,6 @@ export class BannerComponent implements OnInit {
         if (books[i + 2]) pair.push({ image: books[i + 2].image, id: books[i + 2].isbn13 });
         this.pairsOfImages.push(pair);
       }
-      console.log(this.pairsOfImages);
     });
   }
 

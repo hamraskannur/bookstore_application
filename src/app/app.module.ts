@@ -39,7 +39,7 @@ import { EmptyCartComponent } from './pages/carts/empty-cart/empty-cart.componen
     EmptyCartComponent,
   ],
   imports: [
-    HttpClientModule  ,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
