@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bookstore_application';
+  count=0
+
+  addCount=()=>{
+        this.count++
+  }
+
+  mCount=()=>{
+    this.count--
+  }
 }

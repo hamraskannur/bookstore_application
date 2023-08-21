@@ -43,8 +43,8 @@ import { EmptyCartComponent } from './pages/carts/empty-cart/empty-cart.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule,
     BrowserAnimationsModule,
+    NgbModule,
     ToastrModule.forRoot()
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true }],

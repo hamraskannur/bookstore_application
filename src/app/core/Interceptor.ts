@@ -9,6 +9,7 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
   constructor(private errorHandlerServiceService:ErrorHandlerServiceService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         this.errorHandlerServiceService.handleError(error) 

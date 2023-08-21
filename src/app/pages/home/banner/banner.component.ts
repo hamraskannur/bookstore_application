@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiServiceService } from '../../../services/api.service.service';
 import { Books } from 'src/app/interface/interface';
-import { ErrorHandlerServiceService } from '../../../services/error-handler.service.service';
 
 declare var bootstrap: any;
 type ImagePair = { image: string; id: string };
